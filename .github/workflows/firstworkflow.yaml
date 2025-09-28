@@ -15,3 +15,6 @@ jobs:
           node -v
           npm -v
           git -v
+        
+      - name: the date
+        run: date
