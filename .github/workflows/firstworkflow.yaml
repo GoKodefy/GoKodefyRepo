@@ -24,7 +24,19 @@ jobs:
     steps:
       - name: get the present working directory
         run: pwd
-        
+
       - name: get the current directory items
         run: ls -ltrah
-      
+  
+  run-shell-commands-3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: create a file called sample.txt
+        run: |
+          whoami
+          pwd
+          echo "Hello World this is Thazeeb Khan" > sample.txt
+          cat sample.txt
+
+      - name: get the file contents from the previous step (testing)
+        run: cat sample.txt
