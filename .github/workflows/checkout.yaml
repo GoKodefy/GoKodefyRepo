@@ -14,4 +14,8 @@ jobs:
           git fetch origin
           git checkout main
       - name: List files after
-        run: ls -ltrah
+        run: |
+          ls -ltrah
+          ls -ltrah .github/
+          ls -ltrah .github/workflows/
+          cat .github/workflows/Checkout Workflow
