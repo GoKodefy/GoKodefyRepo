@@ -38,6 +38,7 @@ jobs:
           echo "Hello World this is Thazeeb Khan" > sample.txt
           cat sample.txt
           pwd
+          pwd
 
       - name: get the file contents from the previous step (testing)
         run: cat sample.txt
