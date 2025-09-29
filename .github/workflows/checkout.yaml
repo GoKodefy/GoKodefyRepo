@@ -18,4 +18,4 @@ jobs:
           ls -ltrah
           ls -ltrah .github/
           ls -ltrah .github/workflows/
-          cat .github/workflows/Checkout Workflow
+          cat .github/workflows/checkout.yaml
