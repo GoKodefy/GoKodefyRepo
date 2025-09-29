@@ -1,0 +1,17 @@
+name: Checkout Workflow
+on: push
+jobs:
+  checkout-and-display-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List files before
+        run: ls -ltrah
+      - name: checkout
+        run: |
+          git init
+          git status
+          git remote add origin "https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git"
+          git fetch origin
+          git checkout main
+      - name: List files after
+        run: ls -ltrah
