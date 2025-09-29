@@ -66,4 +66,16 @@ jobs:
           ls -ltrah
           cat demo.txt
 
-        
+  run-shell-commands-5:
+    runs-on: ubuntu-latest
+    needs: [run-shell-commands-4]
+    steps:
+      - name: Hey, I will run only if previous step success
+        run: echo "Hey I ran"
+
+  run-shell-commands-6:
+    runs-on: ubuntu-latest
+    needs: [run-shell-commands-5]
+    steps:
+      - name: Hey, I will skip if previous step skipped
+        run: echo "Hey I skipped"
