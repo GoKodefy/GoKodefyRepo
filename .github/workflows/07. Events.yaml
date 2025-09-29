@@ -1,0 +1,15 @@
+#on: [push, pull_request, workflow_dispatch, issues]
+
+name: Repository Events
+on: [push, pull_request, workflow_dispatch, issues]
+
+jobs:
+  checkout-test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo $GITHUB_SHA
+          echo $GITHUB_REF
+      - uses: actions/checkout@v5
+
+          
