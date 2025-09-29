@@ -1,7 +1,14 @@
 #on: [push, pull_request, workflow_dispatch, issues]
 
+
+
 name: Repository Events
-on: [push, pull_request, workflow_dispatch, issues]
+on:
+  push:
+  pull_request:
+    types: [opened, assigned, reopened, synchronize]
+  issues:
+    types: [opened, closed]
 
 jobs:
   checkout-test:
