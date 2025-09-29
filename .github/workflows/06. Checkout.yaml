@@ -10,7 +10,7 @@ jobs:
           ls -ltrah
       - name: Use Checkout Action
         uses: actions/checkout@v5
-      - name: Checkout
+      - name: List Files After
         run: |
           pwd
           ls -ltrah
