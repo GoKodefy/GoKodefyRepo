@@ -56,8 +56,6 @@ jobs:
           cat demo.txt
           cd ..
           pwd
-          cat demo.txt
-          whereis demo.txt
 
       - name: get the file details from the previous step
         run: |
