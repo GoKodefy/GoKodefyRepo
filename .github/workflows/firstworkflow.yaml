@@ -59,7 +59,6 @@ jobs:
 
       - name: get the file details from the previous step
         run: |
-          cat demo.txt
           cd demofolder
           ls -ltrah
           cat demo.txt
