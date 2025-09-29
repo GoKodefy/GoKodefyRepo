@@ -1,0 +1,16 @@
+name: Checkout Action Workflow
+on: push
+jobs:
+  Checkout-Action-Job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List Files before
+        run: |
+          pwd
+          ls -ltrah
+      - name: Use Checkout Action
+        uses: actions/checkout@v5
+      - name: Checkout
+        run: |
+          pwd
+          ls -ltrah
