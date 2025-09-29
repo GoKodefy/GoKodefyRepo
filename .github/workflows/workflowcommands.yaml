@@ -17,3 +17,14 @@ jobs:
                 echo "::group::My Group Title"
                 echo "I am inside the Group"
                 echo "::endgroup::"
+            - name: Masking a Value
+              run: echo "::add-mask::Secret String"
+            - name: echo a secret string
+              run: echo "Secret String"
+            - name: This a Group of Linux Commands
+              run: |
+                echo "::group::Here is the Group of Linux Commands Result"
+                pwd
+                ls -ltrah
+                whoami
+                echo "::endgroup::"
