@@ -7,4 +7,4 @@ jobs:
             - name: setting an error message
               run: echo "::error::There is an error"
             - name: setting a debug message
-              run: echo "::debug title:debug title::Missing semicolon"
+              run: echo "::debug::Missing semicolon"
