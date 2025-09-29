@@ -18,3 +18,13 @@ jobs:
         
       - name: the date
         run: date
+
+  run-shell-commands-2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get the present working directory
+        run: pwd
+        
+      - name: get the current directory items
+        run: ls -ltrah
+      
