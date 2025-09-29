@@ -40,3 +40,30 @@ jobs:
 
       - name: get the file contents from the previous step (testing)
         run: cat sample.txt
+
+  run-shell-commands-4:
+    runs-on: ubuntu-latest
+    steps:
+      - name: create a folder and file
+        run:
+          pwd
+          mkdir demofolder
+          cd demofolder
+          touch demo.txt
+          ls -ltrah
+          cat demo.txt
+          echo "Hello Jaan" > demo.txt
+          cat demo.txt
+          cd ..
+          pwd
+          cat demo.txt
+          whereis demo.txt
+
+      - name: get the file details from the previous step
+        run:
+          cat demo.txt
+          cd demofolder
+          ls -ltrah
+          cat demo.txt
+
+        
