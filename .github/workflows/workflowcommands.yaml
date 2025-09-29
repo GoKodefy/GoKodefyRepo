@@ -8,3 +8,7 @@ jobs:
               run: echo "::error::There is an error"
             - name: setting a debug message
               run: echo "::debug::Missing semicolon"
+            - name: setting an warning message
+              run: echo "::warning::There is a warning"
+            - name: setting a notice message
+              run: echo "::notice::This is a notice"
