@@ -14,6 +14,6 @@ jobs:
               run: echo "::notice::This is a notice"
             - name: Group of Logs
               run: |
-                echo ::group::My Group Title"
+                echo "::group::My Group Title"
                 echo "I am inside the Group"
                 echo "::endgroup::"
