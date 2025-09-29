@@ -12,3 +12,8 @@ jobs:
               run: echo "::warning::There is a warning"
             - name: setting a notice message
               run: echo "::notice::This is a notice"
+            - name: Group of Logs
+              run: |
+                echo ::group::My Group Title"
+                echo "I am inside the Group"
+                echo "::endgroup::"
