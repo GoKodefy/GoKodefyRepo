@@ -45,7 +45,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: create a folder and file
-        run:
+        run: |
           pwd
           mkdir demofolder
           cd demofolder
@@ -60,7 +60,7 @@ jobs:
           whereis demo.txt
 
       - name: get the file details from the previous step
-        run:
+        run: |
           cat demo.txt
           cd demofolder
           ls -ltrah
