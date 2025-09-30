@@ -1,10 +1,20 @@
 name: Environment Vairables Workflows
 on: push
+env:
+  WF_Level_ENV: "Available to All Jobs"
 jobs:
   env-vars-and-context:
+    env:
+      JOB_LEVEL_ENV: "Available to only this env-vars-and-context Job"
     runs-on: ubuntu-latest
+    #if: $GITHUB_REF==refs/heads/main #Don't Do this
+    if: github.ref=='refs/heads/main'
     steps:
       - name: Log ENV VAR
         run: echo $GITHUB_REF
       - name: Log Context
         run: echo '${{github.ref}}'
+      - name: Declare adn Display Step Level ENV
+        env:
+          STEP_LEVEL_ENV: "Available to only this Step"
+        run: echo '${{env.STEP_LEVEL_ENV}}'
