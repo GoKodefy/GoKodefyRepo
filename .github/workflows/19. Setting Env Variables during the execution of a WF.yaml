@@ -37,7 +37,7 @@ jobs:
           echo "" >> "$GITHUB_ENV"
           echo "$DELIMITER" >> "$GITHUB_ENV"
       - name: Show me a Joke
-        run: "$RANDOM_JOKE"
+        run: echo $RANDOM_JOKE
 
 
 #Proper Multiline Syntax:
