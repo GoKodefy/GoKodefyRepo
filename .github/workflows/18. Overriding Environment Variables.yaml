@@ -10,9 +10,8 @@ jobs:
       env-var: "Overriding in Job Level"
     steps:
       - name: Run a simple Linux Command
-        env:
-          env-var: "Overriding in Step Level"
-        run: echo '${{env.env-var}}'
+
+        run: echo "${{env.env-var}}"
       - name: Display Environment Variable value
         run: '${{env.env-var}}'
   job-2:
