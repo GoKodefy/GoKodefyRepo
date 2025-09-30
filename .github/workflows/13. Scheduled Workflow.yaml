@@ -1,0 +1,10 @@
+name: Schedule Workflow
+on:
+  schedule:
+    - cron: "0/5 * * * *" #Every 5 minutes
+#    - cron: "* * * * *"  {minute hour day month day} {minute hour day(month) month day(week)}
+jobs:
+  schedule-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo $GITHUB_ACTOR

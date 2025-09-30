@@ -41,4 +41,4 @@ jobs:
           echo "Age: ${{inputs.Age}}"
           echo "Hometown: ${{inputs.Hometown}}"
           echo "AreYouWorking: ${{inputs.AreYouWorking}}"
-          echo "Environment: ${{inputs.Environment}}"
+          echo "Environment: ${{inputs.Environment}}"git
