@@ -1,0 +1,27 @@
+name: Filter the Workflow Runs
+on:
+  workflow_dispatch:
+#   push:
+
+#     branches:
+#       - main
+#       - develop
+#       - "feature/*"  {matches feature/featA, feature/featB, doesn't match feature/featA/}
+#       - "feature/**" {matches feature/featA, feature/featB, feature/featA/}
+#       - "!feature/featD"
+
+#     branches-ignore:
+#       - feature/featC
+
+#     tags:
+#       - v1.*  {match v1.1, v1.1.2}
+#       - "!v1.1.1"
+
+#     paths:
+#       - "**.js"
+#       - "!app.js"
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - run: pwd

@@ -1,0 +1,37 @@
+name: Manually Trigger Workflow
+on:
+  workflow_dispatch:
+    inputs:
+      string:
+        type: string
+        description: Enter any value
+        default: "Default Value"
+        required: true
+      number:
+        type: number
+        description: Enter a Number
+        default: 22
+        required: false
+      option:
+        type: choice
+        description: Select a Value
+        default: "Value 300"
+        required: true
+        options:
+          - Value 100
+          - Value 200
+          - Value 300
+      boolean:
+        type: boolean
+        description: select a value
+        required: false
+      environment:
+        type: environment
+        description: env
+        required: true
+jobs:
+  log-info:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo $GITHUB_REF
+      - run: echo 
