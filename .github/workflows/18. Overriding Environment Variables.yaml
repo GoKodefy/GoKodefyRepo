@@ -9,15 +9,18 @@ jobs:
     env:
       env-var: "Overriding in Job Level"
     steps:
-      - name: Run a simple Linux Command
-
-        run: echo "${{env.env-var}}"
+      - name: Display Environment Variable value before Overriding from Step Level
+        run: echo '${{env.env-var}}'
+      - name: Declare env-var in this step and show the value
+        env:
+          env-var: "Overriding in Step Level"
+        run: echo '${{env.env-var}}'
       - name: Display Environment Variable value
-        run: '${{env.env-var}}'
+        run: echo '${{env.env-var}}'
   job-2:
     runs-on: ubuntu-latest
     steps:
       - name: Display env-var
-        run: '${{env.env-var}}'
+        run: echo '${{env.env-var}}'
       - name: Display env-var-value
-        run: '${{env.env-var}}'
+        run: echo '${{env.env-var}}'
