@@ -1,3 +1,6 @@
+# Setting an Environment Variable
+# echo "{environment_variable_name}={value}" >> "$GITHUB_ENV"
+
 name: Setting Env Variables during the execution of a WF
 on: push
 jobs:
@@ -15,3 +18,23 @@ jobs:
         run: |
           echo $job_level_env
           echo $NEW_ENV_VAR
+
+
+#   MultiLine Strings Syntax:
+#   {name}<<{delimiter}
+#   {value}
+#   {delimiter}
+
+  job-2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Multiline Strings
+        run: |
+          DELIMITER = 1234
+          echo "RANDOM_JOKE<<$DELIMITER" >> "$GITHUB_ENV"
+          echo "Here is a Joke: " >> "$GITHUB_ENV"
+          curl -s https://icanhazdad.joke.com/ >> $GITHUB_ENV
+          echo "" >> GITHUB_ENV
+          echo "$DELIMITER" >> "$GITHUB_ENV"
+      - name: Show me a Joke
+        run: $RANDOM_JOKE
