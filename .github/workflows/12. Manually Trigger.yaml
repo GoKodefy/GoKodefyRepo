@@ -2,36 +2,43 @@ name: Manually Trigger Workflow
 on:
   workflow_dispatch:
     inputs:
-      string:
+      FullName:
         type: string
-        description: Enter any value
-        default: "Default Value"
+        description: Enter your Full Name
+        default: " "
         required: true
-      number:
+      Age:
         type: number
-        description: Enter a Number
+        description: Enter your Age
         default: 22
-        required: false
-      option:
+        required: true
+      Hometown:
         type: choice
-        description: Select a Value
-        default: "Value 300"
-        required: true
-        options:
-          - Value 100
-          - Value 200
-          - Value 300
-      boolean:
-        type: boolean
-        description: select a value
+        description: Select your Hometown
+        default: "Hyderabad"
         required: false
-      environment:
-        type: environment
-        description: env
+        options:
+          - Nellore
+          - Hyderabad
+          - Bangalore
+          - Chennai
+      AreYouWorking:
+        type: boolean
+        description: Are you currently Working
         required: true
+        default: false
+      Environment:
+        type: environment
+        description: Select your Environment
+        required: false
 jobs:
   log-info:
     runs-on: ubuntu-latest
     steps:
-      - run: echo $GITHUB_REF
-      - run: echo 
+      - run: |
+          echo $GITHUB_REF
+          echo "FullName: ${{inputs.FullName}}"
+          echo "Age: ${{inputs.Age}}"
+          echo "Hometown: ${{inputs.Hometown}}"
+          echo "AreYouWorking: ${{inputs.AreYouWorking}}"
+          echo "Environment: ${{inputs.Environment}}"
