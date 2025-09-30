@@ -33,7 +33,7 @@ jobs:
           DELIMITER=1234
           echo "RANDOM_JOKE<<$DELIMITER" >> "$GITHUB_ENV"
           echo "Here is a Joke: " >> "$GITHUB_ENV"
-          curl -s https://icanhazdad.joke.com/ >> $GITHUB_ENV
+          curl -s https://icanhazdadjoke.com/ >> $GITHUB_ENV
           echo "" >> GITHUB_ENV
           echo "$DELIMITER" >> "$GITHUB_ENV"
       - name: Show me a Joke
