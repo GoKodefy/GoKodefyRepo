@@ -12,7 +12,7 @@ jobs:
       - name: Run a simple Linux Command
         env:
           env-var: "Overriding in Step Level"
-        run: pwd
+        run: ${{env.env-var}}
       - name: Display Environment Variable value
         run: ${{env.env-var}}
   job-2:
