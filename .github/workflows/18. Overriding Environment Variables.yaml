@@ -1,0 +1,24 @@
+name: Overriding Environment Variables
+on: push
+env:
+  env-var: "Overriding in Workflow Level"
+    
+jobs:
+  job-1:
+    runs-on: ubuntu-latest
+    env:
+      env-var: "Overriding in Job Level"
+    steps:
+      - name: Run a simple Linux Command
+        env:
+          env-var: "Overriding in Step Level"
+        run: pwd
+      - name: Display Environment Variable value
+        run: ${{env.env-var}}
+  job-2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display env-var
+        run: ${{env.env-var}}
+      - name: Display env-var-value
+        run: ${{env.env-var}}
