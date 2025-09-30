@@ -1,0 +1,7 @@
+name: Simple Workflow
+on: push
+jobs:
+  simple-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "I ran and also triggered another Workflow, Go and check it out the other Workflow"

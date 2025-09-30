@@ -1,0 +1,10 @@
+name: Run this Flow
+on:
+  workflow_run:
+    workflows: [Simple Workflow]
+    types: [completed]
+jobs:
+  run-this-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "I was triggered, because Simple Workflow was completed"
