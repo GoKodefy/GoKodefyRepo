@@ -30,7 +30,7 @@ jobs:
     steps:
       - name: Multiline Strings
         run: |
-          DELIMITER=$(RANDOM)
+          DELIMITER=12345
           echo "RANDOM_JOKE<<$DELIMITER" >> "$GITHUB_ENV"
           echo "Here is a Joke: " >> "$GITHUB_ENV"
           curl -s https://icanhazdadjoke.com/ >> $GITHUB_ENV
