@@ -1,0 +1,17 @@
+name: Setting Env Variables during the execution of a WF
+on: push
+jobs:
+  job-1:
+    runs-on: ubuntu-latest
+    env:
+      job_level_env: Available to All steps in this Job
+    steps:
+      - name: Set ENV var
+        run: |
+          echo "NEW_ENV_VAR=$(date)" >> $GITHUB_ENV
+          echo "job_level_env=$RANDOM" >> $GITHUB_ENV
+          echo $job_level_env
+      - name: Display all ENV Vars
+        run: |
+          echo $job_level_env
+          echo $NEW_ENV_VAR
