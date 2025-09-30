@@ -37,4 +37,14 @@ jobs:
           echo "" >> "$GITHUB_ENV"
           echo "$DELIMITER" >> "$GITHUB_ENV"
       - name: Show me a Joke
-        run: $RANDOM_JOKE
+        run: "$RANDOM_JOKE"
+
+
+#Proper Multiline Syntax:
+# - name: Set multiline env
+#   run: |
+#     echo "VAR_NAME<<EOF" >> $GITHUB_ENV
+#     echo "Line 1" >> $GITHUB_ENV
+#     echo "Line 2" >> $GITHUB_ENV
+#     echo "Line 3" >> $GITHUB_ENV
+#     echo "EOF" >> $GITHUB_ENV
