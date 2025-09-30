@@ -14,7 +14,12 @@ jobs:
         run: echo $GITHUB_REF
       - name: Log Context
         run: echo '${{github.ref}}'
-      - name: Declare adn Display Step Level ENV
+      - name: Declare and Display Step Level ENV
         env:
           STEP_LEVEL_ENV: "Available to only this Step"
-        run: echo '${{env.STEP_LEVEL_ENV}}'
+        run: echo "STEP_LEVEL_ENV = ${{env.STEP_LEVEL_ENV}}"
+      - name: Display all the ENV Variables
+        run: |
+          echo 'WF_LEVEL_ENV = ${{env.WF_Level_ENV}}'
+          echo 'JOB_LEVEL_ENV = ${{env.JOB_Level_ENV}}'
+          echo 'STEP_LEVEL_ENV = '
