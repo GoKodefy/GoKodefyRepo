@@ -12,13 +12,13 @@ jobs:
       - name: Run a simple Linux Command
         env:
           env-var: "Overriding in Step Level"
-        run: ${{env.env-var}}
+        run: echo "${{env.env-var}}"
       - name: Display Environment Variable value
-        run: ${{env.env-var}}
+        run: '${{env.env-var}}'
   job-2:
     runs-on: ubuntu-latest
     steps:
       - name: Display env-var
-        run: ${{env.env-var}}
+        run: '${{env.env-var}}'
       - name: Display env-var-value
-        run: ${{env.env-var}}
+        run: '${{env.env-var}}'
