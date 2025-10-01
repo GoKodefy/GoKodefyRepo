@@ -12,8 +12,8 @@ jobs:
       - name: Decrypt File
         env:
           PASSPHRASE: ${{secrets.PASSPHRASE}}
-          run: |
-            mkdir $HOME/secrets
-            gpg --quiet --batch --yes --decrypt --passphrase="$PASSPHRASE" --output $HOME/secrets/test.txt test.txt.gpg
-      - name: View Encrypted File Content #Never Do this
+        run: |
+          mkdir $HOME/secrets
+          gpg --quiet --batch --yes --decrypt --passphrase="$PASSPHRASE" --output $HOME/secrets/test.txt test.txt.gpg
+      - name: View Encrypted File Content #Never Do this, just for learning purpose
         run: cat $HOME/secrets/test.txt
