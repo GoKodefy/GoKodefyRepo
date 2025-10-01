@@ -1,0 +1,19 @@
+# Syntax:
+#     gpg --symmetric --cipher-algo AES256 secret.json
+#     gpg --decrypt --passphrase="12345" --output ~/Documents/decrypted.json secret.json.gpg
+
+name: Encrypting & Decrypting Large Files in a Workflow
+on: push
+jobs:
+  decrypt-file:
+    runs-on: ${{vars.JOBS_RUNNER}}
+    steps:
+      - uses: actions/checkout@v5
+      - name: Decrypt File
+        env:
+          PASSPHRASE: ${{secrets.PASSPHRASE}}
+          run: |
+            mkdir $HOME/secrets
+            gpg --quiet --batch --yes --decrypt --passphrase="$PASSPHRASE" --output $HOME/secrets/test.txt test.txt.gpg
+      - name: View Encrypted File Content #Never Do this
+        run: cat $HOME/secrets/test.txt
