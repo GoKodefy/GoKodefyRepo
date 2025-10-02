@@ -8,6 +8,7 @@ jobs:
         run: sleep 20
       - name: step 2
         id: step-2
+        continue-on-error: true
         run: exit 1
       - name: Runs on Step-2 Failure
         if: failure() && steps.step-2.conclusion=='failure'
