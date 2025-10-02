@@ -7,6 +7,7 @@ jobs:
       - name: step 1
         run: sleep 70
         timeout-minutes: 1
+        continue-on-error: true
       - name: step 2
         id: step-2
         continue-on-error: true
