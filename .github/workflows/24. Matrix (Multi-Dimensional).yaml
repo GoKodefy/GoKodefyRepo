@@ -1,0 +1,15 @@
+name: Matrix (Multi-Dimensional)
+on: push
+jobs:
+  job-1:
+    strategy:
+      matrix: #This WF will have 6 Jobs
+        os: [ubuntu-latest, windows-latest]
+        node-version: [14, 15, 16]
+    runs-on: ${{matrix.os}}
+    steps:
+      - run: node -v
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{matrix.node-version}}
+      - run: node -v
