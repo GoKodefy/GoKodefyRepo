@@ -1,0 +1,39 @@
+name: 25. Matrix (Including & Excluding Configurations)
+on: push
+jobs:
+  job-1:
+    continue-on-error: true
+    strategy:
+      matrix: #This WF will have 6 Jobs
+        os: [ubuntu-latest, windows-latest]
+        node-version: [14, 15, 16]
+        includes:
+          - os: ubuntu-latest
+            is-ubuntu: true
+          - os: macos-latest
+            node-version: 15
+          - experimental: false
+          - os: ubuntu-latest
+            node-version: 16
+            experimental: true
+          - os: ubuntu-latest
+            node-version: 17
+        excludes:
+          - os: ubuntu-latest
+            node-version: 14
+      fail-fast: false
+      max-parallel: 3
+    runs-on: ${{matrix.os}}
+    steps:
+      - run: node -v
+      - run: echo '${{toJson(matrix)}}'
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{matrix.node-version}}
+      - run: node -v
+
+
+# matrix:                   Use matrix to define a matrix of different job configurations. Within your matrix, define one or more variables followed by an array of values.
+# continue-on-error: true   Prevents a workflow run from failing when a job fails. Set to true to allow a workflow run to pass when this job fails.
+# fail-fast: false          Setting fail-fast to false prevents GitHub from canceling all in-progress jobs if any matrix job fails. Default: true
+# max-parallel: 3           Only 3 Jobs Runs at a time. The maximum number of jobs that can run simultaneously when using a matrix job strategy. By default, GitHub will maximize the number of jobs run in parallel depending on runner availability.
