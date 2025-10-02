@@ -1,0 +1,36 @@
+name: 26. Matrix (Handling Failinf Jobs)
+on: push
+jobs:
+  job-1:
+    continue-on-error: false
+    #continue-on-error: ${{matrix.experimental == true}}
+    strategy:
+      matrix: 
+        os: [ubuntu-latest, windows-latest]
+        node-version: [14, 15, 16]
+        includes:
+          - os: ubuntu-latest
+            is-ubuntu: true
+          - os: macos-latest
+            node-version: 15
+          - experimental: false
+          - os: ubuntu-latest
+            node-version: 16
+            experimental: true
+          - os: ubuntu-latest
+            node-version: 17
+        excludes:
+          - os: ubuntu-latest
+            node-version: 14
+      fail-fast: true
+      #max-parallel: 3
+    runs-on: ${{matrix.os}}
+    steps:
+      - if: matrix.experimental == true
+        run: exit 1
+      - run: node -v
+      - run: echo '${{toJson(matrix)}}'
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{matrix.node-version}}
+      - run: node -v
