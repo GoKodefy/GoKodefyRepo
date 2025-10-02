@@ -5,7 +5,8 @@ jobs:
     runs-on: ${{vars.JOBS_RUNNER}}
     steps:
       - name: step 1
-        run: sleep 20
+        run: sleep 70
+        timeout-minutes: 1
       - name: step 2
         id: step-2
         continue-on-error: true
