@@ -2,8 +2,8 @@ name: 26. Matrix (Handling Failinf Jobs)
 on: push
 jobs:
   job-1:
-    continue-on-error: false
-    #continue-on-error: ${{matrix.experimental == true}}
+    #continue-on-error: false
+    continue-on-error: ${{matrix.experimental == true}}
     strategy:
       matrix: 
         os: [ubuntu-latest, windows-latest]
